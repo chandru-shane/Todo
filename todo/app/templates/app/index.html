@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% block body %}
+
+<a href="{% url 'create' %}"></a>
+<table class="table">
+	<tr>
+		<th><h3>s.no</h3></th>
+	
+		<th><h3>Task</h3></th>
+	
+		<th><h3>Status</h3></th>
+
+		<th><h3>Update</h3></th>
+
+		<th><h3>Delete</h3></th>
+		
+	</tr>
+	
+
+	{% for todo in todos %}
+	<tr>
+
+	<td><h2>{{todo.id}}</h2></td>
+
+		<td><h3>{{todo.task}}</h3></td>
+
+		<td><h3>{{todo.status}}</h3></td>
+
+		<td><a class="btn btn-outline-info" href="{% url 'update' todo.id %}">Update</a></td>
+
+		<td><a class="btn btn-outline-danger" href="{% url 'delete' todo.id %}">Delete</a></td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock body %}

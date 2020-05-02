@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<legend>Delete : {{object.task}}</legend>
+<hr>
+
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button class="btn btn-danger" type="submit">Delete</button>
+<a href="{% url 'index' %}" class="btn btn-outline-info">Cancel</a></button>
+	</form>
+
+{% endblock body %}
